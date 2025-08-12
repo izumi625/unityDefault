@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
@@ -11,16 +12,63 @@ public interface IPointerDevice
     bool LeftClick();
     bool RightClick();
     bool RightClickheld();
-    
+
+    bool DoubleClicke();
+
 }
 
 public class MouseWrapper : IPointerDevice
 {
     Mouse mouse;
 
+    private float clickTime = Time.time;
+    bool DoubleCheck = false;
+    private const float threshold = 0.2f;
     public MouseWrapper(Mouse mouse) => this.mouse = mouse;
     public Vector2 GetPosition() => mouse.position.ReadValue();
-    public bool LeftClick() => mouse.leftButton.wasPressedThisFrame;
+
+    public bool DoubleClicke() => DoubleCheck;
+
+    private bool singleEmitted = false;
+    public bool LeftClick()
+    {
+
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())//on ui
+            {
+                return false;
+            }
+            float now = Time.time;
+
+            if (clickTime > 0f && (now - clickTime) <= threshold)
+            {
+                DoubleCheck = true;
+                clickTime = -1f;
+                singleEmitted = false;
+                return false;
+            }
+
+
+            clickTime = now;
+            singleEmitted = false;
+            DoubleCheck = false;
+            return false;
+        }
+
+
+        if (clickTime > 0f && !singleEmitted && (Time.time - clickTime) > threshold)
+        {
+            singleEmitted = true;
+            DoubleCheck = false;
+            clickTime = -1f;
+            return true;
+        }
+        DoubleCheck = false;
+        return false;
+    }
+
     public bool RightClick() => mouse.rightButton.wasPressedThisFrame;
     public Vector2 GetDelta() => mouse.delta.ReadValue();
     public bool RightClickheld() => mouse.rightButton.isPressed;
@@ -31,11 +79,14 @@ public class TouchWrapper : IPointerDevice
 {
     private ReadOnlyArray<TouchControl> touches;
     private float holdThreshold = 0.15f;
+    private float doubletime = 0.2f;
     private int touchcount = 0;
 
     private int clickIndex = -1;
     private float clickDownTime;
     private bool isHolding;
+
+    private bool doublecheck = false;
 
     Vector2 pos;
     Vector2 delta;
@@ -44,6 +95,10 @@ public class TouchWrapper : IPointerDevice
 
     public TouchWrapper(ReadOnlyArray<TouchControl> touches) => this.touches = touches;
 
+    public bool DoubleClicke()
+    {
+        return doublecheck;
+    }
     public Vector2 GetPosition() => pos;
     public Vector2 GetDelta() => delta;
     public bool RightClick() => isHolding;
@@ -59,10 +114,16 @@ public class TouchWrapper : IPointerDevice
             {
                 if (touches[i].press.wasPressedThisFrame)
                 {
+                    if(Time.time - clickDownTime < doubletime)
+                    {
+                        doublecheck = true;
+                    }
+       
                     clickIndex = i;
                     clickDownTime = Time.time;
                     isHolding = false;
                     touchcount++;
+
                 }
             }
             return false;
@@ -87,8 +148,6 @@ public class TouchWrapper : IPointerDevice
             delta = Vector2.zero;
         }
 
-
-
         if (t.press.wasReleasedThisFrame)
         {
             bool isTap = !isHolding && (Time.time - clickDownTime) < holdThreshold;
@@ -96,9 +155,10 @@ public class TouchWrapper : IPointerDevice
 
             clickIndex = -1;
             touchcount = 0;
+            doublecheck = false;
             return isTap;
         }
-
+        doublecheck = false;
         return false;
     }
 

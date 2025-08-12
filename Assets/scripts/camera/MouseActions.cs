@@ -43,7 +43,7 @@ public class MouseActions : MonoBehaviour
     }
 
 
-    protected　void Move(Vector2 pos)
+    public　void Move(Vector2 pos)
     {
   
         Ray ray = cam.ScreenPointToRay(pos);
@@ -62,7 +62,6 @@ public class MouseActions : MonoBehaviour
     }
 
 
-
     float DistanceFactor()
     {
         float d = Vector3.Distance(transform.position, targetPos);
@@ -74,8 +73,6 @@ public class MouseActions : MonoBehaviour
         Gizmos.color = new Color(0.2f, 0.7f, 1f, 0.5f);
         Gizmos.DrawSphere(targetPos, 0.2f);
     }
-
-
 
     protected void Zoomby(float scrollY)
     {
@@ -97,7 +94,7 @@ public class MouseActions : MonoBehaviour
 
 
 
-    protected void Direction(Vector2 delta)
+    public void Direction(Vector2 delta)
     {
         yaw += delta.x * rotateSensitivity;
         pitch -= delta.y * rotateSensitivity;

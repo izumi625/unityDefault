@@ -1,67 +1,62 @@
-using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class UnusedMaterialCleaner
+public class UnusedMaterialChecker
 {
-    [MenuItem("Tools/Clean Unused Materials in Scene")]
-    public static void CleanUnusedMaterials()
+    [MenuItem("Tools/Check Unused Materials In Selected Folder")]
+    public static void CheckUnusedMaterials()
     {
-        HashSet<Material> usedMaterials = new HashSet<Material>();
+        // 選択フォルダ取得
+        string[] selectedFolders = Selection.assetGUIDs != null
+            ? System.Array.ConvertAll(Selection.assetGUIDs, AssetDatabase.GUIDToAssetPath)
+            : new string[0];
 
-        // Renderer 系
-        foreach (Renderer renderer in Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None))
+        if (selectedFolders.Length == 0)
         {
-            foreach (var mat in renderer.sharedMaterials)
-            {
-                if (mat != null)
-                    usedMaterials.Add(mat);
-            }
-        }
-
-        // UI Graphic 系 (Image, RawImage, Text など)
-        foreach (Graphic graphic in Object.FindObjectsByType<Graphic>(FindObjectsSortMode.None))
-        {
-            if (graphic.material != null)
-                usedMaterials.Add(graphic.material);
-        }
-
-        Debug.Log(usedMaterials.Count);
-
-        // プロジェクト内の全マテリアルを取得
-        string[] guids = AssetDatabase.FindAssets("t:Material");
-        List<string> unusedPaths = new List<string>();
-        Debug.Log(guids.Length);
-        foreach (string guid in guids)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            Material mat = AssetDatabase.LoadAssetAtPath<Material>(path);
-
-            if (!usedMaterials.Contains(mat))
-            {
-                unusedPaths.Add(path);
-            }
-        }
-
-        if (unusedPaths.Count == 0)
-        {
-            EditorUtility.DisplayDialog("Unused Material Cleaner", "未使用のマテリアルは見つかりませんでした。", "OK");
+            Debug.LogWarning("フォルダを選択してください。");
             return;
         }
 
-        if (EditorUtility.DisplayDialog(
-            "Unused Material Cleaner",
-            $"{unusedPaths.Count} 個の未使用マテリアルが見つかりました。削除しますか？",
-            "削除する", "キャンセル"))
+        // 選択フォルダ内のマテリアル一覧
+        string[] guids = AssetDatabase.FindAssets("t:Material", selectedFolders);
+        List<string> materialPaths = guids.Select(AssetDatabase.GUIDToAssetPath).ToList();
+        Debug.Log($"Get Mat {materialPaths.Count}Count");
+
+        // プロジェクト内の全アセット（マテリアル以外も含む）
+        string[] allGuids = AssetDatabase.FindAssets("");
+        List<string> allPaths = allGuids.Select(AssetDatabase.GUIDToAssetPath).ToList();
+
+        List<string> unusedMaterials = new List<string>();
+
+        foreach (string matPath in materialPaths)
         {
-            foreach (string path in unusedPaths)
+            bool isUsed = false;
+            foreach (string assetPath in allPaths)
             {
-                AssetDatabase.DeleteAsset(path);
+                if (assetPath == matPath) continue; // 自分自身はスキップ
+
+                if (assetPath.EndsWith(".fbx", System.StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                // このアセットの依存ファイルを取得
+                var deps = AssetDatabase.GetDependencies(assetPath, true);
+                if (deps.Contains(matPath))
+                {
+                    isUsed = true;
+                    Debug.Log(assetPath);
+                    break;
+                }
             }
-            AssetDatabase.Refresh();
-            EditorUtility.DisplayDialog("Unused Material Cleaner", "削除が完了しました。", "OK");
+
+            if (!isUsed)
+            {
+                unusedMaterials.Add(matPath);
+                Debug.Log($"未使用: {matPath}");
+            }
         }
+
+        Debug.Log($"未使用マテリアル数: {unusedMaterials.Count}");
     }
 }

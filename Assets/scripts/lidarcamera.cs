@@ -1,102 +1,100 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using TMPro;
 
 [RequireComponent(typeof(LineRenderer))]
-public class RayVisualizer : MonoBehaviour
+public class lidarcamera : MonoBehaviour
 {
     public float maxRayDistance = 100f;
     public float markerScale = 0.05f;
     public Color markerColor = Color.black;
-    public float sensitivity = 3f;
-    private float rotationX = 0f;
-    private float rotationY = 0f;
-
     private List<(Vector3, Vector3)> markerPairs = new List<(Vector3, Vector3)>();
     private Vector3? lastMarker = null;
-
     private Material mat;
-
+    private Camera cam;
     List<GameObject> activeLabels = new List<GameObject>();
+
+
     void Start()
     {
-        Vector3 angles = transform.eulerAngles;
-        rotationX = angles.x;
-        rotationY = angles.y;
-        mat = Resources.Load<Material>("default");
+        mat = Resources.Load<Material>("camera/distance");
         if (mat == null)
         {
-            Debug.LogError("default.mat ‚ª Resources ‚ÉŒ©‚Â‚©‚è‚Ü‚¹‚ñI");
+            Debug.LogError("ãƒªã‚½ãƒ¼ã‚¹ãƒ•ã‚©ãƒ«ãƒ€ã€€camera/distance.matãŒèª­ã¿è¾¼ã‚ã¾ã›ã‚“");
+        }
+        cam = Camera.main;
+        if (cam == null)
+        {
+            Debug.LogError("MainCamera ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚ã‚«ãƒ¡ãƒ©ã« 'MainCamera' ã‚¿ã‚°ã‚’ä»˜ã‘ã¦ãã ã•ã„ã€‚");
         }
     }
 
+
     void Update()
     {
-        // ‰EƒNƒŠƒbƒNƒhƒ‰ƒbƒO‚Å‹“_ˆÚ“®
-        if (Input.GetMouseButton(1))
-        {
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
-
-            rotationY += mouseX;
-            rotationX -= mouseY;
-            rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-
-            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
-        }
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            Physics.queriesHitBackfaces = true;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, maxRayDistance))
-            {
-                // ƒ}[ƒJ[İ’u
-                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                sphere.transform.position = hit.point;
-                sphere.transform.localScale = Vector3.one * markerScale;
-
-                Renderer renderer = sphere.GetComponent<Renderer>();
-                renderer.material = mat;
-                renderer.material.color = markerColor;
-                Destroy(sphere.GetComponent<Collider>());
-
-                // 2“_–Ú‚È‚çƒyƒA‚ğ•Û‘¶
-                if (lastMarker.HasValue)
-                {
-                    Vector3 a = lastMarker.Value;
-                    Vector3 b = hit.point;
-
-                    markerPairs.Add((a, b));
-
-                    float distance = Vector3.Distance(a, b);
-                    Debug.Log($"‹——£: {distance:F3}m");
-
-                    DrawLineBetween(a, b, distance);
-                    lastMarker = null; // Ÿ‚ÌƒyƒA‚É”õ‚¦‚ÄƒŠƒZƒbƒg
-                }
-                else
-                {
-                    lastMarker = hit.point;
-                }
-            }
-        }
-
         foreach (var label in activeLabels)
         {
             if (label != null)
             {
-                label.transform.forward = Camera.main.transform.forward;
+                label.transform.forward = cam.transform.forward;
             }
         }
+    }
+
+
+    public void MeasureDistance()
+    {
+
+
+        Physics.queriesHitBackfaces = true;
+        var mouse = Mouse.current;
+        if (mouse == null) { Debug.LogWarning("Mouse.current is null"); return; }
+
+        Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
+        RaycastHit hit;
+
+
+
+        if (Physics.Raycast(ray, out hit, maxRayDistance))
+        {
+
+            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            sphere.transform.position = hit.point;
+            sphere.transform.localScale = Vector3.one * markerScale;
+
+            Renderer renderer = sphere.GetComponent<Renderer>();
+            renderer.material = mat;
+            renderer.material.color = markerColor;
+            Destroy(sphere.GetComponent<Collider>());
+
+
+            if (lastMarker.HasValue)
+            {
+                Vector3 a = lastMarker.Value;
+                Vector3 b = hit.point;
+
+                markerPairs.Add((a, b));
+
+                float distance = Vector3.Distance(a, b);
+
+                DrawLineBetween(a, b, distance);
+                lastMarker = null;
+            }
+            else
+            {
+                lastMarker = hit.point;
+            }
+        }
+        
+
+
 
 
     }
     void DrawLineBetween(Vector3 start, Vector3 end, float distance)
     {
-        // ü‚ğ•`‰æ
+
         GameObject lineObj = new GameObject("Line");
         LineRenderer lr = lineObj.AddComponent<LineRenderer>();
         lr.positionCount = 2;
@@ -106,11 +104,10 @@ public class RayVisualizer : MonoBehaviour
         lr.startColor = lr.endColor = Color.yellow;
         lr.startWidth = lr.endWidth = 0.02f;
 
-        // ƒ‰ƒxƒ‹‚ÌˆÊ’u‚Íü‚Ì’†“_
         Vector3 midPoint = (start + end) / 2;
         midPoint.y += 0.3f;
 
-        // TextMeshPro ‚Ì•\¦ƒIƒuƒWƒFƒNƒgì¬
+
         GameObject textObj = new GameObject("DistanceLabel");
         textObj.transform.position = midPoint;
 
@@ -123,25 +120,22 @@ public class RayVisualizer : MonoBehaviour
         textMesh.enableCulling = true;
 
 
-        // ”wŒi—p Quad ‚ğì¬
+
         GameObject background = GameObject.CreatePrimitive(PrimitiveType.Quad);
         background.name = "LabelBackground";
-        background.transform.SetParent(textObj.transform); // Text ‚É’Ç]‚³‚¹‚é
-        background.transform.localPosition = new Vector3(0, 0, 0.01f); // ­‚µŒã‚ë‚ÖiZ•ûŒüj
-        background.transform.localScale = new Vector3(1f, 0.3f, 0.2f); // ƒTƒCƒY’²®
+        background.transform.SetParent(textObj.transform);
+        background.transform.localPosition = new Vector3(0, 0, 0.01f);
+        background.transform.localScale = new Vector3(1f, 0.3f, 0.2f);
 
-        // ”wŒi‚Ìƒ}ƒeƒŠƒAƒ‹‚ğ•‚É
         Material bgMat = mat;
         bgMat.color = Color.black;
         background.GetComponent<MeshRenderer>().material = bgMat;
 
-        // •s—v‚ÈƒRƒ‰ƒCƒ_[‚ğíœiQuad ‚ÍƒRƒ‰ƒCƒ_[•t‚«j
         Destroy(background.GetComponent<Collider>());
 
 
         activeLabels.Add(textObj);
     }
-
 
 
 }

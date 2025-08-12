@@ -21,7 +21,7 @@
             "fullManagedTypeName": "",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -30,7 +30,7 @@
             "fullManagedTypeName": "",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -46,8 +46,15 @@
             "fullManagedTypeName": "",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "lidarcamera",
+            "moduleName": "",
+            "usedInScenes": []
         },
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
@@ -69,7 +76,7 @@
             "fullManagedTypeName": "",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -85,7 +92,7 @@
             "fullManagedTypeName": "",
             "moduleName": "AI",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -124,12 +131,40 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_FontAsset",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_Settings",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_SpriteAsset",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_StyleSheet",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "AnimatorController",
             "fullManagedTypeName": "UnityEditor.Animations.AnimatorController",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -159,7 +194,7 @@
             "fullManagedTypeName": "UnityEditor.MonoScript",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -203,7 +238,7 @@
             "fullManagedTypeName": "UnityEngine.AnimationClip",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -212,7 +247,7 @@
             "fullManagedTypeName": "UnityEngine.Animator",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -221,7 +256,7 @@
             "fullManagedTypeName": "UnityEngine.AudioBehaviour",
             "moduleName": "Audio",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -230,7 +265,7 @@
             "fullManagedTypeName": "UnityEngine.AudioListener",
             "moduleName": "Audio",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -239,7 +274,16 @@
             "fullManagedTypeName": "UnityEngine.Behaviour",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "BoxCollider",
+            "fullManagedTypeName": "UnityEngine.BoxCollider",
+            "moduleName": "Physics",
+            "usedInScenes": [
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -248,7 +292,7 @@
             "fullManagedTypeName": "UnityEngine.Camera",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -257,7 +301,7 @@
             "fullManagedTypeName": "UnityEngine.Collider",
             "moduleName": "Physics",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -266,7 +310,7 @@
             "fullManagedTypeName": "UnityEngine.Component",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -275,7 +319,16 @@
             "fullManagedTypeName": "UnityEngine.Cubemap",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "Font",
+            "fullManagedTypeName": "UnityEngine.Font",
+            "moduleName": "TextRendering",
+            "usedInScenes": [
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -284,15 +337,8 @@
             "fullManagedTypeName": "UnityEngine.GameObject",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
-        },
-        {
-            "managedAssemblyName": "Unity.InputSystem.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "UnityEngine.InputSystem.InputActionAsset",
-            "moduleName": "",
-            "usedInScenes": []
         },
         {
             "managedAssemblyName": "Unity.InputSystem.dll",
@@ -321,7 +367,7 @@
             "fullManagedTypeName": "UnityEngine.Light",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -330,7 +376,16 @@
             "fullManagedTypeName": "UnityEngine.LightmapSettings",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "LineRenderer",
+            "fullManagedTypeName": "UnityEngine.LineRenderer",
+            "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -339,7 +394,7 @@
             "fullManagedTypeName": "UnityEngine.Material",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -348,16 +403,7 @@
             "fullManagedTypeName": "UnityEngine.Mesh",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "MeshCollider",
-            "fullManagedTypeName": "UnityEngine.MeshCollider",
-            "moduleName": "Physics",
-            "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -366,7 +412,7 @@
             "fullManagedTypeName": "UnityEngine.MeshFilter",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -375,7 +421,7 @@
             "fullManagedTypeName": "UnityEngine.MeshRenderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -384,7 +430,7 @@
             "fullManagedTypeName": "UnityEngine.MonoBehaviour",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -393,7 +439,7 @@
             "fullManagedTypeName": "UnityEngine.Motion",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -402,7 +448,7 @@
             "fullManagedTypeName": "UnityEngine.Object",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -418,7 +464,7 @@
             "fullManagedTypeName": "UnityEngine.Renderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -434,7 +480,7 @@
             "fullManagedTypeName": "UnityEngine.RenderSettings",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -443,7 +489,7 @@
             "fullManagedTypeName": "UnityEngine.RuntimeAnimatorController",
             "moduleName": "Animation",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -452,7 +498,7 @@
             "fullManagedTypeName": "UnityEngine.Shader",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -468,7 +514,7 @@
             "fullManagedTypeName": "UnityEngine.TextAsset",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -477,7 +523,7 @@
             "fullManagedTypeName": "UnityEngine.Texture",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -486,7 +532,7 @@
             "fullManagedTypeName": "UnityEngine.Texture2D",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         },
         {
@@ -495,7 +541,7 @@
             "fullManagedTypeName": "UnityEngine.Transform",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/tegarayama/tegarayama.unity"
+                "Assets/Scenes/tegarayama.unity"
             ]
         }
     ],
@@ -3176,9 +3222,6 @@
     "forceIncludeModules": [],
     "forceExcludeModules": [
         "AMD",
-        "ClusterInput",
-        "ClusterRenderer",
-        "NVIDIA",
-        "VirtualTexturing"
+        "NVIDIA"
     ]
 }

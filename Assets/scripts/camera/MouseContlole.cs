@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 
 public class MouseContlole : MouseActions
 {
     IPointerDevice pointer;
+    [SerializeField] private UnityEvent DoubleClickEvent;
+    [SerializeField] private UnityEvent<Vector2> LeftClickEvent;
+    [SerializeField] private UnityEvent<Vector2> RightClickEvent;
+
 
     protected override void Awake()
     {
@@ -16,21 +21,25 @@ public class MouseContlole : MouseActions
                 #endif
     }
 
-
-
     void Update()
     {
         if (pointer.LeftClick())
         {
-            Move(pointer.GetPosition());
+
+            LeftClickEvent?.Invoke(pointer.GetPosition());
         }
         if (pointer.RightClickheld())
         {
-            Direction(pointer.GetDelta());
+            RightClickEvent?.Invoke(pointer.GetDelta());
         }
 
         if (pointer.RightClick())
         {
+
+        }
+        if (pointer.DoubleClicke())
+        {
+            DoubleClickEvent?.Invoke();
 
         }
 

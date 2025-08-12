@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public static class DuplicateMaterialFinder
@@ -9,8 +10,18 @@ public static class DuplicateMaterialFinder
     [MenuItem("Tools/Find Duplicate Materials (Shader + Colors)")]
     public static void FindDuplicates()
     {
-        // プロジェクト内の全Material取得
-        var guids = AssetDatabase.FindAssets("t:Material");
+
+        string[] selectedFolders = Selection.assetGUIDs != null
+            ? System.Array.ConvertAll(Selection.assetGUIDs, AssetDatabase.GUIDToAssetPath)
+            : new string[0];
+
+        if (selectedFolders.Length == 0)
+        {
+            Debug.LogWarning("フォルダを選択してください。");
+            return;
+        }
+
+        string[] guids = AssetDatabase.FindAssets("t:Material", selectedFolders);
         var map = new Dictionary<string, List<Material>>();
 
         int countLoaded = 0;
@@ -31,7 +42,6 @@ public static class DuplicateMaterialFinder
             countLoaded++;
         }
 
-        // 重複グループのみ抽出
         var dupGroups = map.Where(kv => kv.Value.Count > 1)
                            .OrderByDescending(kv => kv.Value.Count)
                            .ToList();
@@ -55,6 +65,20 @@ public static class DuplicateMaterialFinder
             }
             g++;
         }
+
+        if (!EditorUtility.DisplayDialog(
+            "重複マテリアルの処理確認",
+            $"重複候補 {dupGroups.Count} グループが見つかりました。\n" +
+            "このまま置き換え・削除を実行しますか？",
+            "はい（実行）",
+            "いいえ（中止）"))
+        {
+            // ユーザーが「いいえ」を押した場合は処理中断
+            return;
+        }
+        MatDelete(dupGroups);
+
+
     }
 
     // 署名作成：Shader名 + Colorプロパティ（名前=R,G,B,A）をソートして連結
@@ -126,4 +150,31 @@ public static class DuplicateMaterialFinder
     }
 
     private static string Round4(float v) => Math.Round(v, 4).ToString("0.####");
+
+    private static void MatDelete(List<KeyValuePair<string, List<Material>>> dupGroups)
+    {
+        foreach (var kv in dupGroups)
+        {
+            var signature = kv.Key;
+            var mats = kv.Value.Where(m => m != null).Distinct().ToList();
+            if (mats.Count <= 1) continue;
+
+            var master = mats.First();
+            foreach (var dup in mats.Skip(1))
+            {
+                var dupPath = AssetDatabase.GetAssetPath(dup);
+                if (!string.IsNullOrEmpty(dupPath))
+                {
+                    AssetDatabase.DeleteAsset(dupPath);
+                    Debug.Log($"削除: {dupPath}");
+                }
+            }
+        }
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
+
+
 }
+
+
