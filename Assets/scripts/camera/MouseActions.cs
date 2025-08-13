@@ -39,13 +39,12 @@ public class MouseActions : MonoBehaviour
         var e = transform.eulerAngles;
         yaw = e.y;
         pitch = e.x > 180 ? e.x - 360f : e.x;
-
     }
 
 
-    public　void Move(Vector2 pos)
+    public void Move(Vector2 pos)
     {
-  
+
         Ray ray = cam.ScreenPointToRay(pos);
 
         if (Physics.Raycast(ray, out var hit, 10000f, raycastLayers, QueryTriggerInteraction.Ignore))
@@ -91,9 +90,6 @@ public class MouseActions : MonoBehaviour
             }
         }
     }
-
-
-
     public void Direction(Vector2 delta)
     {
         yaw += delta.x * rotateSensitivity;
@@ -101,4 +97,7 @@ public class MouseActions : MonoBehaviour
         pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 
     }
+
+    public void Up() => targetPos += Vector3.up;
+    public void Down() => targetPos -= Vector3.up;
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
 public class SliderAnimatorSync : MonoBehaviour
 {
     [Header("UI")]
@@ -41,7 +40,7 @@ public class SliderAnimatorSync : MonoBehaviour
         animator.Update(0f);
     }
 
-    // i”CˆÓjÄ¶’†‚ÉƒXƒ‰ƒCƒ_[‚Ö”½‰f‚³‚¹‚½‚¢ê‡
+    // ï¿½iï¿½Cï¿½Ójï¿½Äï¿½ï¿½ï¿½ï¿½ÉƒXï¿½ï¿½ï¿½Cï¿½_ï¿½[ï¿½Ö”ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
     void Update()
     {
         if (animator != null && animator.speed > 0f && slider != null)

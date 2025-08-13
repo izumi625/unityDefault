@@ -1,118 +1,102 @@
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.Animations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
-
-public static class UIQuickMake
+public class UIQuickMakeWindow : EditorWindow
 {
+    // ‰ªªÊÑè„ÅßÊâãÂãïÊåáÂÆö„Åó„Åü„ÅÑÂ†¥Âêà„Å´‰Ωø„ÅÜ
+    [SerializeField] private Canvas canvasRef;
 
-    static Animator anima;
-
-    [MenuItem("Tools/UI/Do Something With Animator")]
-    public static void DoSomething()
+    [MenuItem("Tools/UI/Canvas Quick Make")]
+    private static void Open()
     {
-        var go = Selection.activeGameObject;
-
-        if (go == null || EditorUtility.IsPersistent(go) || go.GetComponent<Animator>() == null)
-        {
-            EditorUtility.DisplayDialog(
-                "Selection Required",
-                "Please select a GameObject in the scene that has an Animator component attached.",
-                "OK"
-            );
-            return;
-        }
-
-        anima = go.GetComponent<Animator>();
-
-        CreateSliderSmart();
+        var win = GetWindow<UIQuickMakeWindow>("Canvas Quick Make");
+        win.minSize = new Vector2(360, 180);
+        win.Show();
     }
 
-    public static void CreateSliderSmart()
+    private void OnGUI()
     {
-        // 1) ëŒè€ Canvas ÇåàíËÅiëIëíÜÇÃêe Å® ÉVÅ[Éìì‡ÇÃç≈èâÅj
-        Canvas canvas = Selection.activeGameObject
-            ? Selection.activeGameObject.GetComponentInParent<Canvas>()
-            : null;
-        canvas ??= Object.FindFirstObjectByType<Canvas>();
+        EditorGUILayout.LabelField("Canvas", EditorStyles.boldLabel);
 
-        // 2) Canvas Ç™ñ≥ÇØÇÍÇŒçÏê¨ÅiEventSystem Ç‡ópà”Åj
-        if (!canvas)
+
+        EditorGUILayout.HelpBox(
+        "If the Canvas is null, it will be created automatically.",
+            MessageType.Info
+        );
+        canvasRef = (Canvas)EditorGUILayout.ObjectField("Target Canvas", canvasRef, typeof(Canvas), true);
+        FindCanvasInScene();
+
+        EditorGUILayout.Space();
+
+        EditorGUILayout.Space(10);
+        EditorGUILayout.LabelField("Slider linked to animation");
+
+        using (new EditorGUI.DisabledScope(false))
         {
-            var canvasGO = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
-            Undo.RegisterCreatedObjectUndo(canvasGO, "Create Canvas");
-            canvas = canvasGO.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-            var scaler = canvasGO.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-
-            if (!Object.FindFirstObjectByType<EventSystem>())
+            if (GUILayout.Button("Create Slider", GUILayout.Height(32)))
             {
-                var esGO = new GameObject("EventSystem", typeof(EventSystem));
-                esGO.AddComponent<InputSystemUIInputModule>();
-
-                Undo.RegisterCreatedObjectUndo(esGO, "Create EventSystem");
+                var canvas = canvasRef ? canvasRef : EnsureCanvas();
+                if (canvas == null)
+                {
+                    EditorUtility.DisplayDialog("Canvas Not Found", "Could not find or create a Canvas.", "OK");
+                    return;
+                }
+                var creator = new SliderCreate(canvas);
+                creator.Create();
+                EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             }
         }
-
-        // 3) ä˘Ç…ÇªÇÃ Canvas îzâ∫Ç… Slider Ç™Ç†ÇÈÇ»ÇÁçÏÇÁÇ∏ëIë
-        var existing = canvas.GetComponentInChildren<Slider>(true);
-        if (existing)
+        EditorGUILayout.Space(10);
+        EditorGUILayout.LabelField("Camera Position Control");
+        if (GUILayout.Button("UpDownButton Create", GUILayout.Height(32)))
         {
-            Selection.activeGameObject = existing.gameObject;
-            EditorGUIUtility.PingObject(existing);
-            Debug.Log("Existing Slider found. Selected it.", existing);
-            return;
-        }
-
-        // 4) Canvas ÇëIë Å® ì‡ë†ÉÅÉjÉÖÅ[Ç≈ Slider Çê∂ê¨
-        Selection.activeGameObject = canvas.gameObject;
-        EditorApplication.ExecuteMenuItem("GameObject/UI/Slider");
-
-        // 5) édè„Ç∞ÅiíÜâõîzíuÅEÉTÉCÉYÅj
-        var sliderGO = Selection.activeGameObject;
-        if (sliderGO)
-        {
-            var rt = sliderGO.GetComponent<RectTransform>();
-            if (rt)
+            var canvas = canvasRef ? canvasRef : EnsureCanvas();
+            if (canvas == null)
             {
-                rt.anchorMin = new Vector2(0.5f, 0f);
-                rt.anchorMax = new Vector2(0.5f, 0f);
-
-                rt.pivot = new Vector2(0.5f, 0f);
-
-                rt.anchoredPosition = new Vector2(0f, 20f);
-                rt.sizeDelta = new Vector2(220, 20);
+                EditorUtility.DisplayDialog("Canvas Not Found", "Could not find or create a Canvas.", "OK");
+                return;
             }
+            var creator = new UpDownBottom(canvas);
+            creator.Create();
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
-
-        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-        Debug.Log("Created Slider under Canvas.", sliderGO);
-
-
-        var slider = canvas.GetComponentInChildren<UnityEngine.UI.Slider>(true);
-        var sync = slider.GetComponent<SliderAnimatorSync>();
-        if (!sync) sync = Undo.AddComponent<SliderAnimatorSync>(slider.gameObject);
-        sync.slider = slider;
-        sync.animator = anima;
-        sync.layer = 0;
-
-        EditorUtility.SetDirty(sync);
-        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-
-        // ç≈å„Ç…ëIëÇÉXÉâÉCÉ_Å[Ç÷
-        Selection.activeGameObject = slider.gameObject;
-        EditorGUIUtility.PingObject(slider);
-
     }
 
+    // „Ç∑„Éº„É≥ÂÜÖ„Åã„ÇâÊúÄÂàù„ÅÆ Canvas „ÇíÊé¢„Åô
+    private static Canvas FindCanvasInScene()
+    {
+        var canvas = Object.FindFirstObjectByType<Canvas>();
+        return canvas;
+    }
+
+    private static Canvas EnsureCanvas()
+    {
+        var canvas = Object.FindFirstObjectByType<Canvas>();
+        if (canvas) return canvas;
+
+        var canvasGO = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+        Undo.RegisterCreatedObjectUndo(canvasGO, "Create Canvas");
+        canvas = canvasGO.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        var scaler = canvasGO.GetComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+
+        if (!Object.FindFirstObjectByType<EventSystem>())
+        {
+            var esGO = new GameObject("EventSystem", typeof(EventSystem));
+            esGO.AddComponent<InputSystemUIInputModule>();
+            Undo.RegisterCreatedObjectUndo(esGO, "Create EventSystem");
+        }
+
+        Selection.activeGameObject = canvasGO;
+        EditorGUIUtility.PingObject(canvasGO);
+        return canvas;
+    }
 }
-
-
-
-
+#endif
