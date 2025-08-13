@@ -1,12 +1,16 @@
 ﻿<Properties StartupConfiguration="{9C5065CB-F5B2-C451-6223-76E7E28A77B3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/camerapos.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/lidarcamera.cs">
     <Files>
-      <File FileName="Assets/scripts/camerapos.cs" Line="8" Column="5" />
+      <File FileName="Assets/scripts/camera/IPointerDevice.cs" Line="122" Column="36" />
+      <File FileName="Assets/scripts/camera/MouseActions.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/camera/MouseContlole.cs" Line="51" Column="10" />
+      <File FileName="Assets/scripts/camera/UI/SliderAnimatorSync.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/lidarcamera.cs" Line="24" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="326619a1-f70b-437e-bbf5-04f8a6c82de0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="903323f0-fb4d-40a5-b9f5-980b4a10089d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

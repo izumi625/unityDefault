@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
+using System.Collections.Generic;
 
 public interface IPointerDevice
 {
@@ -83,9 +84,9 @@ public class TouchWrapper : IPointerDevice
     private int touchcount = 0;
 
     private int clickIndex = -1;
+    private bool singleclick = false;
     private float clickDownTime;
     private bool isHolding;
-
     private bool doublecheck = false;
 
     Vector2 pos;
@@ -95,10 +96,7 @@ public class TouchWrapper : IPointerDevice
 
     public TouchWrapper(ReadOnlyArray<TouchControl> touches) => this.touches = touches;
 
-    public bool DoubleClicke()
-    {
-        return doublecheck;
-    }
+    public bool DoubleClicke() => doublecheck;
     public Vector2 GetPosition() => pos;
     public Vector2 GetDelta() => delta;
     public bool RightClick() => isHolding;
@@ -106,42 +104,51 @@ public class TouchWrapper : IPointerDevice
 
 
 
+
+    private float doubleDownTime;
+
     public bool LeftClick()
     {
+        doublecheck = false;
+        if (singleclick && (Time.time - doubleDownTime) > doubletime)
+        {
+            singleclick = false;
+            return true;
+        }
+
         if (clickIndex < 0)
         {
             for (int i = 0; i < touches.Count; i++)
             {
                 if (touches[i].press.wasPressedThisFrame)
                 {
-                    if(Time.time - clickDownTime < doubletime)
-                    {
-                        doublecheck = true;
-                    }
-       
-                    clickIndex = i;
-                    clickDownTime = Time.time;
-                    isHolding = false;
-                    touchcount++;
+                    pos = touches[i].position.ReadValue();
 
+                    if(IsOverUI(pos)) return false;
+                         
+        
+                    clickIndex = i;
+                    isHolding = false;
+                    clickDownTime = Time.time; // このタップの押下開始時刻
+                    touchcount = 1;         // この指を追う
+                    break;
                 }
             }
-            return false;
+            if (clickIndex < 0) return false;   // 押下なし
         }
-        if (clickIndex >= touches.Count)
-        {
-            clickIndex = -1;
-            touchcount = 0;
-            isHolding = false;
-            return false;
-        }
+
+
+
 
         var t = touches[clickIndex];
 
+
+
+        // --- 4) ドラッグ/長押し ---
         if (t.press.isPressed && (Time.time - clickDownTime) >= holdThreshold && touchcount == 1)
         {
             isHolding = true;
-            delta = touches[clickIndex].delta.ReadValue();
+            delta = t.delta.ReadValue();
         }
         else
         {
@@ -150,15 +157,30 @@ public class TouchWrapper : IPointerDevice
 
         if (t.press.wasReleasedThisFrame)
         {
-            bool isTap = !isHolding && (Time.time - clickDownTime) < holdThreshold;
-            pos = t.position.ReadValue();
 
+            bool isTap = !isHolding && (Time.time - clickDownTime) < holdThreshold;
+
+            if (isTap)
+            {
+                if (singleclick && (Time.time - doubleDownTime) <= doubletime)
+                {
+                    doublecheck = true;
+                    singleclick = false;
+                }
+                else
+                {
+                    singleclick = true;
+       
+                }
+            }
+            doubleDownTime = Time.time;
             clickIndex = -1;
-            touchcount = 0;
-            doublecheck = false;
-            return isTap;
+            isHolding = false;
+
+
+            return false;
         }
-        doublecheck = false;
+
         return false;
     }
 
@@ -199,7 +221,15 @@ public class TouchWrapper : IPointerDevice
         return delta;
     }
 
+    static bool IsOverUI(Vector2 screenPos)
+    {
+        if (EventSystem.current == null) return false;
 
+        var data = new PointerEventData(EventSystem.current) { position = screenPos };
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(data, results);
+        return results.Count > 0;  // 1つでもUIに当たれば true
+    }
 
 }
 

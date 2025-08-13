@@ -1,32 +1,38 @@
+Unity Editor version:    6000.1.15f1 (faa32412f6c9)
+Branch:                  6000.1/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.5 (Build 24F74)
+Darwin version:          24.5.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        32768 MB
+Date:                    2025-08-12T09:13:35Z
 Using pre-set license
-Built from '6000.1/staging' branch; Version is '6000.1.15f1 (faa32412f6c9) revision 16425764'; Using compiler version '194234433'; Build Type 'Release'
-OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'ja' Physical Memory: 16087 MB
-BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
-Date: 2025-08-12T08:39:07Z
+Pro License: YES
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\6000.1.15f1\Editor\Unity.exe
+/Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/IZUMI/unityproject/unityDefault/unityDefault
+/Users/katsuyaizumi/defaultunity
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-3998
+49529
 -job-worker-count
-7
+5
 -background-job-worker-count
 8
 -gc-helper-count
 1
--name
-AssetImport
-Successfully changed project path to: C:/Users/IZUMI/unityproject/unityDefault/unityDefault
-C:/Users/IZUMI/unityproject/unityDefault/unityDefault
+-name AssetImport
+Successfully changed project path to: /Users/katsuyaizumi/defaultunity
+/Users/katsuyaizumi/defaultunity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-allocator-temp-initial-block-size-main=262144"
     "memorysetup-allocator-temp-initial-block-size-worker=262144"
@@ -62,13 +68,13 @@ C:/Users/IZUMI/unityproject/unityDefault/unityDefault
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37756]  Target information:
+Player connection [8496111360]  Target information:
 
-Player connection [37756]  * "[IP] 192.168.2.45 [Port] 0 [Flags] 2 [Guid] 1635053302 [EditorId] 1635053302 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MT4RMJT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [8496111360]  * "[IP] 192.168.2.144 [Port] 0 [Flags] 2 [Guid] 3142589790 [EditorId] 3142589790 [Version] 1048832 [Id] OSXEditor(0,katsuyaizuminoMac-Studio.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
 
-Player connection [37756] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [37756] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 7
+Player connection [8496111360] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8496111360] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -79,60 +85,63 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.16 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.1.15f1 (faa32412f6c9)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.1.15f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/IZUMI/unityproject/unityDefault/unityDefault/Assets
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/katsuyaizumi/defaultunity/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
-Direct3D:
-    Version:         Direct3D 12 [level 12.1]
-    Renderer:        NVIDIA GeForce RTX 4060 Laptop GPU (ID=0x28a0)
-    Vendor:          NVIDIA
-    VRAM:            7957 MB
-    App VRAM Budget: 7189 MB
-    Driver:          32.0.15.6614
+ preferred device: Apple M2 Max (high power)
+Metal devices available: 1
+0: Apple M2 Max (high power)
+Using device Apple M2 Max (high power)
+Initializing Metal device caps: Apple M2 Max
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.1.15f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.1.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.1.15f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56204
+Mono path[0] = '/Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56209
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.1.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003245 seconds.
-- Loaded All Assemblies, in  0.423 seconds
-Native extension for WindowsStandalone target not found
+Register platform support module: /Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.1.15f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.000338 seconds.
+- Loaded All Assemblies, in  0.232 seconds
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.322 seconds
-Domain Reload Profiling: 743ms
-	BeginReloadAssembly (177ms)
+- Finished resetting the current domain, in  0.284 seconds
+Domain Reload Profiling: 516ms
+	BeginReloadAssembly (53ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (35ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (27ms)
 	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (46ms)
-	LoadAllAssembliesAndSetupDomain (152ms)
-		LoadAssemblies (175ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (113ms)
+		LoadAssemblies (53ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (147ms)
-			TypeCache.Refresh (146ms)
-				TypeCache.ScanAssembly (133ms)
+		AnalyzeDomain (112ms)
+			TypeCache.Refresh (110ms)
+				TypeCache.ScanAssembly (101ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (322ms)
+	FinalizeReload (284ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (287ms)
+		SetupLoadedEditorAssemblies (255ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (49ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (57ms)
-			ProcessInitializeOnLoadAttributes (118ms)
-			ProcessInitializeOnLoadMethodAttributes (59ms)
+			InitializePlatformSupportModulesInManaged (90ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (46ms)
+			ProcessInitializeOnLoadAttributes (76ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -141,48 +150,369 @@ Domain Reload Profiling: 743ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.734 seconds
-Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
+- Loaded All Assemblies, in  0.369 seconds
+Refreshing native plugins compatible for Editor in 0.24 ms, found 2 plugins.
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.682 seconds
-Domain Reload Profiling: 1412ms
-	BeginReloadAssembly (179ms)
+- Finished resetting the current domain, in  0.435 seconds
+Domain Reload Profiling: 804ms
+	BeginReloadAssembly (89ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (27ms)
-	RebuildCommonClasses (36ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (27ms)
 	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (467ms)
-		LoadAssemblies (384ms)
+	initialDomainReloadingComplete (21ms)
+	LoadAllAssembliesAndSetupDomain (222ms)
+		LoadAssemblies (125ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (184ms)
-			TypeCache.Refresh (145ms)
-				TypeCache.ScanAssembly (130ms)
-			BuildScriptInfoCaches (30ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (682ms)
+		AnalyzeDomain (131ms)
+			TypeCache.Refresh (111ms)
+				TypeCache.ScanAssembly (101ms)
+			BuildScriptInfoCaches (15ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (435ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (572ms)
+		SetupLoadedEditorAssemblies (369ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (101ms)
-			ProcessInitializeOnLoadAttributes (438ms)
-			ProcessInitializeOnLoadMethodAttributes (23ms)
-			AfterProcessingInitializeOnLoad (4ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (273ms)
+			ProcessInitializeOnLoadMethodAttributes (13ms)
+			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.04 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (1ms)
+Launching external process: /Applications/Unity/Hub/Editor/6000.1.15f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.29 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 3733 unused Assets / (0.9 MB). Loaded Objects now: 4243.
-Memory consumption went from 86.2 MB to 85.2 MB.
-Total: 5.567600 ms (FindLiveObjects: 0.293500 ms CreateObjectMapping: 0.222900 ms MarkObjects: 3.945700 ms  DeleteObjects: 1.104400 ms)
+Unloading 3733 unused Assets / (0.9 MB). Loaded Objects now: 4260.
+Memory consumption went from 82.0 MB to 81.1 MB.
+Total: 4.635250 ms (FindLiveObjects: 0.370041 ms CreateObjectMapping: 0.138584 ms MarkObjects: 3.582000 ms  DeleteObjects: 0.544292 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 1192.554930 seconds.
+  path: Assets/3DMODEL/tegarayama0812.prefab
+  artifactKey: Guid(94cc4ed1d58666a43a17b84a943db10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3DMODEL/tegarayama0812.prefab using Guid(94cc4ed1d58666a43a17b84a943db10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e5395ff79d68bf51ef1a0e5a2e3e7ed') in 0.103844375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3039
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.387567 seconds.
+  path: Assets/Materials/IFC_Surface_Style_1.mat
+  artifactKey: Guid(f01dd2654a1055b4aa06d0615929bbdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_1.mat using Guid(f01dd2654a1055b4aa06d0615929bbdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '75cb9d6ed435b67d1396a78d7aa0b6d9') in 0.014559333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Materials/IFC_Surface_Style_4963144.mat
+  artifactKey: Guid(7beb5e93dacacce46a405b08aeb2dd15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_4963144.mat using Guid(7beb5e93dacacce46a405b08aeb2dd15) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07fc722e163de79d3c208a525f888c2d') in 0.002835625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_SUSi板.mat
+  artifactKey: Guid(75f35c16cc777a34f8320e76ab9069f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_SUSi板.mat using Guid(75f35c16cc777a34f8320e76ab9069f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9b07bcbba0abc5c4958461a0b2731ac') in 0.003028208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Materials/IFC_Surface_Style_3265504.mat
+  artifactKey: Guid(e80d01b59d5352243a9c0b8a91a2d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_3265504.mat using Guid(e80d01b59d5352243a9c0b8a91a2d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09ffbb6b610e8d75540ab3561eca6f5c') in 0.002770375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_ニシキ.mat
+  artifactKey: Guid(fec6aabd5c04c4f43a4cf89ae6b278bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_ニシキ.mat using Guid(fec6aabd5c04c4f43a4cf89ae6b278bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3da1336aa2a7b2420dd1bc6683bfcaf2') in 0.002554125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_濃い灰色.mat
+  artifactKey: Guid(288c6f530162f1c42834ec818543f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_濃い灰色.mat using Guid(288c6f530162f1c42834ec818543f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '65cc1d5c516678c2854cedb19fafb4fd') in 0.002433417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_白.mat
+  artifactKey: Guid(30ba0d3cc4290c347b023ce6509a66f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_白.mat using Guid(30ba0d3cc4290c347b023ce6509a66f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd6c3d451986f5eb3454e9bec7674bca4') in 0.002385209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Materials/IFC_Surface_Style_680996.mat
+  artifactKey: Guid(702c22cc039661d4b8a01d7111e00aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_680996.mat using Guid(702c22cc039661d4b8a01d7111e00aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7197b3988726a61160048b28a985c222') in 0.002642541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Materials/ヘイマツ材.mat
+  artifactKey: Guid(302c24ab7583dd248b9ed63f4d8a456e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/ヘイマツ材.mat using Guid(302c24ab7583dd248b9ed63f4d8a456e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ca3dc93ea94c975c3beb50cbb1aa3e00') in 0.003057458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Materials/IFC_Surface_Style_567468.mat
+  artifactKey: Guid(9193e6c91ae24aa448b2e3027648efa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_567468.mat using Guid(9193e6c91ae24aa448b2e3027648efa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5182440ae37bca06b428ef2cb21e4ce3') in 0.002672375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Materials/IFC_Surface_Style_604153.mat
+  artifactKey: Guid(39a9763c6c66ff647b2808fe4d7b8f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_604153.mat using Guid(39a9763c6c66ff647b2808fe4d7b8f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4a29f4c9e0a73ae8565b152e72416684') in 0.003085291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_オフ白_光沢.mat
+  artifactKey: Guid(dae9425377f755f428d87b6f69adc729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_オフ白_光沢.mat using Guid(dae9425377f755f428d87b6f69adc729) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6ba519602a0901d128cac763d6858bc5') in 0.002928375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Materials/IFC_Surface_Style_567282.mat
+  artifactKey: Guid(3e38ab029b9f6374aaa6db13f4f8aa6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_567282.mat using Guid(3e38ab029b9f6374aaa6db13f4f8aa6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '01aef2e7b8dee4b264d22af8b970a8a8') in 0.002893375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Materials/IFC_Surface_Style_2924534.mat
+  artifactKey: Guid(478b9fc0716e5f1408816ac648356414) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_2924534.mat using Guid(478b9fc0716e5f1408816ac648356414) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44b7462470382021127eb4ce47376237') in 0.00278725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Materials/既定の壁.mat
+  artifactKey: Guid(6542da7f7fd27fa4fbf69f64f06004b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/既定の壁.mat using Guid(6542da7f7fd27fa4fbf69f64f06004b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b4c67c508741ccd8a6c23783f8fdcce9') in 0.002361125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_タイヤ_マット.mat
+  artifactKey: Guid(caff88193909fa7489140065a46fe8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_タイヤ_マット.mat using Guid(caff88193909fa7489140065a46fe8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '534b86aeac7b7c47f627ce8327451db3') in 0.002176375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_灰色.mat
+  artifactKey: Guid(eefe0277efb1e88479b5499b5830588b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_灰色.mat using Guid(eefe0277efb1e88479b5499b5830588b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '37f3edcef72c1ffe94f0389d14e17f75') in 0.0021825 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Materials/IFC_Surface_Style_2.mat
+  artifactKey: Guid(8fbf4e791371e1c41906b68fc7dc44ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_2.mat using Guid(8fbf4e791371e1c41906b68fc7dc44ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fdefff49a00a40a04bca97046a21d719') in 0.002926667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_銀.mat
+  artifactKey: Guid(7795db422c745a0428c27909aaa8000c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_銀.mat using Guid(7795db422c745a0428c27909aaa8000c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '150c58c67a037f8d6f8a84f4e663f1a3') in 0.002717084 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_赤.mat
+  artifactKey: Guid(21834974445420d459c00b8bcacd547f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_赤.mat using Guid(21834974445420d459c00b8bcacd547f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b1540c741a1f6062210c294f91878da') in 0.003114208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Materials/IFC_Surface_Style_1396603.mat
+  artifactKey: Guid(836c069da47326b4fb7607ab49761a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_1396603.mat using Guid(836c069da47326b4fb7607ab49761a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5fcaf841e144208649923515a0c08318') in 0.002506625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Materials/IFC_Surface_Style_1940346.mat
+  artifactKey: Guid(6e5d241d807e6164a94e0cc16d7a679d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_1940346.mat using Guid(6e5d241d807e6164a94e0cc16d7a679d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8dbcdf857e4996af82a2a0e30f273b8b') in 0.002823458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/Materials/鋼_ヘイント仕上け_タイヤ.mat
+  artifactKey: Guid(2cec7268d749c9c4a8b3960bd9aa1876) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/鋼_ヘイント仕上け_タイヤ.mat using Guid(2cec7268d749c9c4a8b3960bd9aa1876) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a5fb2c3cde117533315ada781799032') in 0.0026875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Materials/カラス.mat
+  artifactKey: Guid(0a90005c3bf6e8a41bfe88f8c27c059e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/カラス.mat using Guid(0a90005c3bf6e8a41bfe88f8c27c059e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1c72a9c34b53e9961ca8451d576330a4') in 0.005276542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Materials/IFC_Surface_Style_842331.mat
+  artifactKey: Guid(8e215cec3866d59408e030eb714bf6bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_842331.mat using Guid(8e215cec3866d59408e030eb714bf6bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '69bc49d7623ee57444229f4a6931c699') in 0.00274975 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Materials/IFC_Surface_Style_402543.mat
+  artifactKey: Guid(2eafb36236665eb448056a8b1b93f35a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/IFC_Surface_Style_402543.mat using Guid(2eafb36236665eb448056a8b1b93f35a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8535281fb5b126a52e61d80d70cd3dfd') in 0.002572292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x3212ff000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.342 seconds
+Refreshing native plugins compatible for Editor in 0.27 ms, found 2 plugins.
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.460 seconds
+Domain Reload Profiling: 803ms
+	BeginReloadAssembly (106ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (12ms)
+	LoadAllAssembliesAndSetupDomain (191ms)
+		LoadAssemblies (135ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (88ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (79ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (460ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (392ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (67ms)
+			ProcessInitializeOnLoadAttributes (291ms)
+			ProcessInitializeOnLoadMethodAttributes (14ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3731 unused Assets / (473.0 KB). Loaded Objects now: 4302.
+Memory consumption went from 94.9 MB to 94.4 MB.
+Total: 4.546333 ms (FindLiveObjects: 0.219167 ms CreateObjectMapping: 0.117666 ms MarkObjects: 3.660459 ms  DeleteObjects: 0.548916 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x32265f000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.334 seconds
+Refreshing native plugins compatible for Editor in 0.22 ms, found 2 plugins.
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.471 seconds
+Domain Reload Profiling: 807ms
+	BeginReloadAssembly (100ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (12ms)
+	LoadAllAssembliesAndSetupDomain (189ms)
+		LoadAssemblies (131ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (89ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (79ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (471ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (398ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (69ms)
+			ProcessInitializeOnLoadAttributes (295ms)
+			ProcessInitializeOnLoadMethodAttributes (14ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Refreshing native plugins compatible for Editor in 0.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3731 unused Assets / (0.9 MB). Loaded Objects now: 4302.
+Memory consumption went from 94.3 MB to 93.4 MB.
+Total: 4.938750 ms (FindLiveObjects: 0.208958 ms CreateObjectMapping: 0.134167 ms MarkObjects: 3.863708 ms  DeleteObjects: 0.731708 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting

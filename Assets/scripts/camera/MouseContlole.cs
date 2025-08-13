@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class MouseContlole : MouseActions
 {
     IPointerDevice pointer;
-    [SerializeField] private UnityEvent DoubleClickEvent;
+    [SerializeField] private UnityEvent<Vector2> DoubleClickEvent;
     [SerializeField] private UnityEvent<Vector2> LeftClickEvent;
     [SerializeField] private UnityEvent<Vector2> RightClickEvent;
 
@@ -39,7 +39,7 @@ public class MouseContlole : MouseActions
         }
         if (pointer.DoubleClicke())
         {
-            DoubleClickEvent?.Invoke();
+            DoubleClickEvent?.Invoke(pointer.GetPosition());
 
         }
 

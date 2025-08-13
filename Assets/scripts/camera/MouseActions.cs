@@ -17,7 +17,7 @@ public class MouseActions : MonoBehaviour
     public float panDamp = 10f;
 
     [Header("ズーム")]
-    public float zoomSpeed = 5f;            // m per wheel step
+    public float zoomSpeed = 1f;            // m per wheel step
     public float zoomMinDistance = 0.5f;
     public float zoomMaxDistance = 200f;
 

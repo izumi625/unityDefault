@@ -43,15 +43,13 @@ public class lidarcamera : MonoBehaviour
     }
 
 
-    public void MeasureDistance()
+    public void MeasureDistance(Vector2 pos)
     {
 
 
         Physics.queriesHitBackfaces = true;
-        var mouse = Mouse.current;
-        if (mouse == null) { Debug.LogWarning("Mouse.current is null"); return; }
 
-        Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
+        Ray ray = cam.ScreenPointToRay(pos);
         RaycastHit hit;
 
 
